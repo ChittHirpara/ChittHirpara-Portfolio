@@ -9,20 +9,22 @@ export default function HeroSection() {
             {/* Center Hero Content */}
             <div className="relative z-10 text-center max-w-7xl mx-auto">
                 {/* Main Headline */}
-                {/* Main Headline */}
-                <h1 className="headline-font leading-[0.9] tracking-tight text-white mb-8 overflow-hidden flex flex-col items-center drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-                    {/* Top Line: CHITT */}
-                    <div className="text-[15vw] sm:text-[12vw] lg:text-[10vw] flex overflow-hidden leading-none pb-2">
+                <h1 className="leading-[0.88] text-white mb-10 overflow-hidden flex flex-col items-center">
+                    {/* CHITT */}
+                    <div
+                        className="text-[15vw] sm:text-[12vw] lg:text-[10.5vw] flex overflow-hidden leading-none"
+                        style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, letterSpacing: '-0.04em' }}
+                    >
                         {"CHITT".split("").map((char, index) => (
                             <motion.span
                                 key={`chitt-${index}`}
-                                className="inline-block"
-                                initial={{ y: "100%" }}
+                                className="inline-block text-white"
+                                initial={{ y: "110%" }}
                                 animate={{ y: 0 }}
                                 transition={{
-                                    duration: 1,
+                                    duration: 0.9,
                                     ease: [0.22, 1, 0.36, 1],
-                                    delay: index * 0.05
+                                    delay: index * 0.06
                                 }}
                             >
                                 {char}
@@ -30,18 +32,21 @@ export default function HeroSection() {
                         ))}
                     </div>
 
-                    {/* Bottom Line: HIRPARA (Slightly smaller) */}
-                    <div className="text-[12vw] sm:text-[10vw] lg:text-[8.5vw] flex overflow-hidden leading-none mt-0">
+                    {/* HIRPARA */}
+                    <div
+                        className="text-[15vw] sm:text-[12vw] lg:text-[10.5vw] flex overflow-hidden leading-none"
+                        style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, letterSpacing: '-0.04em' }}
+                    >
                         {"HIRPARA".split("").map((char, index) => (
                             <motion.span
                                 key={`hirpara-${index}`}
-                                className="inline-block"
-                                initial={{ y: "100%" }}
+                                className="inline-block text-white"
+                                initial={{ y: "110%" }}
                                 animate={{ y: 0 }}
                                 transition={{
-                                    duration: 1,
+                                    duration: 0.9,
                                     ease: [0.22, 1, 0.36, 1],
-                                    delay: 0.15 + (index * 0.05) // Slight delay after CHITT
+                                    delay: 0.12 + (index * 0.06)
                                 }}
                             >
                                 {char}
@@ -52,15 +57,18 @@ export default function HeroSection() {
 
                 {/* Supporting Text */}
                 <motion.div
-                    className="space-y-2"
+                    className="space-y-3 mt-2"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
-                    <p className="text-xs sm:text-sm tracking-[0.3em] uppercase text-gray-400 font-light">
-                        I DESIGN AND BUILD PRODUCTS THAT
+                    <p className="text-[10px] sm:text-xs tracking-[0.35em] uppercase text-gray-500 font-light">
+                        I design and build products that
                     </p>
-                    <p className="serif-italic text-3xl sm:text-4xl lg:text-5xl text-white font-normal">
+                    <p
+                        className="text-3xl sm:text-4xl lg:text-5xl text-white/90 font-normal"
+                        style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic' }}
+                    >
                         deliver real impact.
                     </p>
                 </motion.div>
@@ -93,7 +101,7 @@ export default function HeroSection() {
                 </svg>
                 <div className="flex flex-col items-center text-center">
                     <span className="text-[10px] sm:text-xs text-gray-300 tracking-[0.2em] uppercase font-medium">
-                        BASED IN NOIDA,
+                        BASED IN AHMEDABAD,
                     </span>
                     <span className="text-[10px] sm:text-xs text-gray-500 tracking-[0.15em] uppercase">
                         INDIA

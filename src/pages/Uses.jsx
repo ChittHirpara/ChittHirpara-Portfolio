@@ -8,38 +8,44 @@ const hardware = [
     {
         category: 'Workstation',
         items: [
-            { name: 'MacBook Pro 16" (M3 Max)', desc: 'Main machine (64GB RAM)' },
-            { name: 'Pro Display XDR', desc: '32-inch Retina 6K' },
-            { name: 'Herman Miller Aeron', desc: 'Remastered - Mineral' },
+            { name: 'HP Victus', desc: 'My main battle station — where every project starts and ships' },
+            { name: 'Matrix Monitor', desc: 'External display for more screen real estate while coding' },
+            { name: 'Cello Chair', desc: 'Keeping the back alive through long builds and late nights' },
         ]
     },
     {
         category: 'Peripherals',
         items: [
-            { name: 'Keychron Q1 Pro', desc: 'Custom switches + keycaps' },
-            { name: 'Logitech MX Master 3S', desc: 'The productivity goat' },
-            { name: 'Sony WH-1000XM5', desc: 'Noise cancelling bliss' },
+            { name: 'Evofox Keyboard', desc: 'Clicky keys, clean vibes — every keystroke feels intentional' },
+            { name: 'Dell Mouse', desc: 'Reliable and precise — no complaints, just ships' },
+            { name: 'Zebronics Headphones', desc: 'Locked in mode. Music on, distractions off' },
         ]
-    }
+    },
+    {
+        category: 'Mobile',
+        items: [
+            { name: 'Vivo Y39', desc: 'Testing responsive UIs, staying connected, capturing moments' },
+        ]
+    },
 ]
 
 const software = [
     {
         category: 'Development',
         items: [
-            { name: 'VS Code', desc: 'With customized soothing theme' },
-            { name: 'Warp Terminal', desc: 'Rust-based, blazingly fast' },
-            { name: 'Docker', desc: 'Containerization & deployments' },
+            { name: 'VS Code', desc: 'Home base. Extensions, themes, shortcuts — fully tuned to my workflow' },
+            { name: 'Firefox', desc: 'Dev tools, privacy, and performance — my browser of choice' },
+            { name: 'Claude (Anthropic)', desc: 'AI pair programming, debugging, and architecture thinking partner' },
         ]
     },
     {
         category: 'Design & Productivity',
         items: [
-            { name: 'Figma', desc: 'UI/UX design & prototyping' },
-            { name: 'Notion', desc: 'Second brain / Documentation' },
-            { name: 'Raycast', desc: 'Spotlight replacement on steroids' },
+            { name: 'Figma', desc: 'UI/UX wireframes, component design, and prototyping before building' },
+            { name: 'Canva', desc: 'Quick graphics, social assets, and visual content at speed' },
+            { name: 'Notion', desc: 'Second brain — project planning, notes, and idea capture' },
         ]
-    }
+    },
 ]
 
 function Section({ title, data, delayOffset = 0 }) {
@@ -106,14 +112,15 @@ export default function Uses() {
             touchMultiplier: 2,
         })
 
+        let frameId
         function raf(time) {
             lenis.raf(time)
-            requestAnimationFrame(raf)
+            frameId = requestAnimationFrame(raf)
         }
-
-        requestAnimationFrame(raf)
+        frameId = requestAnimationFrame(raf)
 
         return () => {
+            cancelAnimationFrame(frameId)
             lenis.destroy()
         }
     }, [])

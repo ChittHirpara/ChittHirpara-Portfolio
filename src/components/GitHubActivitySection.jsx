@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useMemo } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { GitHubCalendar } from 'react-github-calendar'
 
@@ -12,8 +12,8 @@ export default function GitHubActivitySection() {
         dark: ['rgba(255, 255, 255, 0.05)', 'rgba(20, 83, 45, 0.7)', 'rgba(21, 128, 61, 0.8)', 'rgba(34, 197, 94, 0.9)', '#4ade80']
     }
 
-    const currentYear = new Date().getFullYear();
-    const availableYears = ['last', currentYear, currentYear - 1];
+    const currentYear = new Date().getFullYear()
+    const availableYears = useMemo(() => ['last', currentYear, currentYear - 1], [currentYear])
 
     return (
         <section ref={sectionRef} className="relative py-32 px-6 sm:px-12 lg:px-20 bg-black overflow-hidden">

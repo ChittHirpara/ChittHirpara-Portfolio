@@ -23,14 +23,15 @@ export default function Links() {
             touchMultiplier: 2,
         })
 
+        let frameId
         function raf(time) {
             lenis.raf(time)
-            requestAnimationFrame(raf)
+            frameId = requestAnimationFrame(raf)
         }
-
-        requestAnimationFrame(raf)
+        frameId = requestAnimationFrame(raf)
 
         return () => {
+            cancelAnimationFrame(frameId)
             lenis.destroy()
         }
     }, [])

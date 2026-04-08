@@ -13,14 +13,17 @@ export default function BookCall() {
             smoothWheel: true,
         })
 
+        let frameId
         function raf(time) {
             lenis.raf(time)
-            requestAnimationFrame(raf)
+            frameId = requestAnimationFrame(raf)
         }
+        frameId = requestAnimationFrame(raf)
 
-        requestAnimationFrame(raf)
-
-        return () => lenis.destroy()
+        return () => {
+            cancelAnimationFrame(frameId)
+            lenis.destroy()
+        }
     }, [])
 
     const scrollToCalendar = () => {

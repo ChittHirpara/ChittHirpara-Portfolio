@@ -7,6 +7,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 import Navbar from '../components/Navbar'
 import ClosingSection from '../components/ClosingSection'
+import ContactModal from '../components/ContactModal'
+import CombatRecordHUD, { AnimatedCounter } from '../components/CombatRecordHUD'
 
 // ─── Hackathon Data ──────────────────────────────────────────────
 const offlineHackathons = [
@@ -73,41 +75,6 @@ const onlineHackathons = [
     { id: 13, name: 'IIITD Hackathon', project: 'CampusConnect', result: 'Top 15', tech: ['React Native', 'Express', 'Socket.io'] },
 ]
 
-// ─── Animated Counter ─────────────────────────────────────────────
-function AnimatedCounter({ target, label, suffix = '' }) {
-    const [count, setCount] = useState(0)
-    const ref = useRef(null)
-    const isInView = useInView(ref, { once: true })
-
-    useEffect(() => {
-        if (!isInView) return
-        let start = 0
-        const duration = 2000
-        const increment = target / (duration / 16)
-        const timer = setInterval(() => {
-            start += increment
-            if (start >= target) {
-                setCount(target)
-                clearInterval(timer)
-            } else {
-                setCount(Math.floor(start))
-            }
-        }, 16)
-        return () => clearInterval(timer)
-    }, [isInView, target])
-
-    return (
-        <div ref={ref} className="text-center">
-            <div className="text-4xl lg:text-5xl font-bold tracking-tight">
-                {count}{suffix}
-            </div>
-            <div className="text-xs tracking-[0.2em] text-gray-500 uppercase mt-2 font-medium">
-                {label}
-            </div>
-        </div>
-    )
-}
-
 // ─── Offline Hackathon Card ──────────────────────────────────────
 function OfflineCard({ hack, index }) {
     const isEven = index % 2 === 0
@@ -126,6 +93,7 @@ function OfflineCard({ hack, index }) {
                     <img
                         src={hack.photo}
                         alt={hack.name}
+                        loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     {/* Gradient overlay */}
@@ -244,6 +212,8 @@ function OnlineCard({ hack, index }) {
 
 // ─── Main Arena Page ─────────────────────────────────────────────
 export default function Arena() {
+    const [modalOpen, setModalOpen] = useState(false)
+    
     useEffect(() => {
         const lenis = new Lenis({
             duration: 1.2,
@@ -422,48 +392,15 @@ export default function Arena() {
                 </div>
             </section>
 
-            {/* ═══ CTA SECTION ═══ */}
-            <section className="relative py-32 px-6">
-                <div className="max-w-4xl mx-auto text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        className="relative"
-                    >
-                        {/* Glow */}
-                        <div className="absolute inset-0 -z-10">
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[200px] bg-orange-500/[0.06] rounded-full blur-[100px]" />
-                        </div>
-
-                        <p className="text-[10px] font-bold tracking-[0.3em] text-gray-500 uppercase mb-6">
-                            What's Next
-                        </p>
-                        <h2 className="text-4xl lg:text-6xl font-bold tracking-tight">
-                            Want to{' '}
-                            <span className="font-serif italic bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-                                hack together?
-                            </span>
-                        </h2>
-                        <p className="text-gray-500 text-sm max-w-md mx-auto mt-6 leading-relaxed">
-                            I'm always looking for the next challenge. If you're building something ambitious, let's team up.
-                        </p>
-                        <motion.a
-                            href="mailto:chitthirpara@gmail.com"
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="inline-flex items-center gap-2 mt-10 px-8 py-4 bg-white text-black font-bold text-sm tracking-wider rounded-full hover:bg-orange-500 hover:text-white transition-colors duration-300"
-                        >
-                            LET'S CONNECT
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7v10" />
-                            </svg>
-                        </motion.a>
-                    </motion.div>
-                </div>
-            </section>
+            {/* ═══ COMBAT RECORD SECTION ═══ */}
+            <CombatRecordHUD />
 
             <ClosingSection />
+            
+            {/* Contact Modal */}
+            <AnimatePresence>
+                {modalOpen && <ContactModal onClose={() => setModalOpen(false)} />}
+            </AnimatePresence>
         </div>
     )
 }

@@ -42,33 +42,6 @@ function getGradient(name) {
     return avatarGradients[name.charCodeAt(0) % avatarGradients.length]
 }
 
-function MessageCard({ entry, index }) {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.97 }}
-            transition={{ duration: 0.45, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
-            className="group flex items-start gap-4 py-5 border-b border-white/6 last:border-0
-                       hover:bg-white/[0.02] -mx-4 px-4 rounded-xl transition-colors duration-300"
-        >
-            {/* Avatar */}
-            <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${getGradient(entry.name)}
-                            flex-shrink-0 flex items-center justify-center text-white text-xs font-bold shadow-lg`}>
-                {getInitials(entry.name)}
-            </div>
-
-            <div className="flex-1 min-w-0">
-                <div className="flex items-baseline justify-between gap-2 mb-1">
-                    <span className="text-white font-semibold text-sm">{entry.name}</span>
-                    <span className="text-gray-600 text-xs flex-shrink-0">{timeAgo(entry.createdAt?.toDate())}</span>
-                </div>
-                <p className="text-gray-400 text-sm leading-relaxed">{entry.message}</p>
-            </div>
-        </motion.div>
-    )
-}
-
 export default function Guestbook() {
     const [entries, setEntries] = useState([])
     const [name, setName] = useState('')
@@ -83,9 +56,10 @@ export default function Guestbook() {
             easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smoothWheel: true,
         })
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf) }
-        requestAnimationFrame(raf)
-        return () => lenis.destroy()
+        let frameId
+        function raf(time) { lenis.raf(time); frameId = requestAnimationFrame(raf) }
+        frameId = requestAnimationFrame(raf)
+        return () => { cancelAnimationFrame(frameId); lenis.destroy() }
     }, [])
 
     useEffect(() => {

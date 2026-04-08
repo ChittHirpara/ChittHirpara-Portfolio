@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 // Card 1 — Currently Building with GitHub Identity
 function CurrentlyBuildingCard({ isInView, index }) {
@@ -81,7 +82,9 @@ function CurrentlyBuildingCard({ isInView, index }) {
                     </span>
 
                     <motion.a
-                        href="#"
+                        href="https://github.com/ChittHirpara"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-gray-400 text-xs font-medium hover:text-white transition-colors group/link"
                     >
                         View project <span className="inline-block group-hover/link:translate-x-1 transition-transform">→</span>
@@ -138,14 +141,15 @@ function ThinkerCard({ isInView, index }) {
                         — Steve Jobs
                     </p>
 
-                    <motion.a
-                        href="#contact"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.05] border border-white/[0.1] text-white text-sm font-medium hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300 w-fit"
-                        whileHover={{ scale: 1.02 }}
-                    >
-                        Start a conversation
-                        <span>→</span>
-                    </motion.a>
+                    <Link to="/book">
+                        <motion.span
+                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.05] border border-white/[0.1] text-white text-sm font-medium hover:bg-white/[0.1] hover:border-white/[0.2] transition-all duration-300 w-fit cursor-pointer"
+                            whileHover={{ scale: 1.02 }}
+                        >
+                            Start a conversation
+                            <span>→</span>
+                        </motion.span>
+                    </Link>
                 </div>
             </div>
         </motion.div>

@@ -15,10 +15,10 @@ export default function Navbar() {
         { name: 'Work', path: '/work' },
         { name: 'Arena', path: '/arena' },
         { name: 'Resume', path: '/resume' },
+        { name: 'Links', path: '/links' },
     ]
 
     const moreItems = [
-        { name: 'Links', description: 'My Digital Presence', path: '/links', icon: 'link' },
         { name: 'Uses', description: 'My gear & software', path: '/uses', icon: 'uses' },
         { name: 'Guestbook', description: 'Sign my wall', path: '/guestbook', icon: 'guestbook' },
     ]
@@ -115,26 +115,26 @@ export default function Navbar() {
                                         animate={{ opacity: 1, y: 0, scale: 1 }}
                                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                         transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-                                        className="absolute top-full right-0 mt-3 p-3 rounded-2xl bg-[#1a1a1a]/95 backdrop-blur-xl border border-white/10 shadow-2xl min-w-[400px]"
+                                        className="absolute top-full right-0 mt-3 p-2.5 rounded-2xl bg-[#1a1a1a]/95 backdrop-blur-xl border border-white/10 shadow-2xl w-max"
                                     >
-                                        <div className="flex gap-3">
+                                        <div className="flex gap-2">
                                             {/* Labs Card - Featured */}
                                             <Link to="/labs" className="flex-shrink-0" onClick={() => setIsMoreOpen(false)}>
                                                 <motion.div
-                                                    className="w-44 h-44 rounded-xl bg-gradient-to-br from-violet-600 via-purple-600 to-violet-800 p-4 flex flex-col justify-end relative overflow-hidden group cursor-pointer"
+                                                    className="w-40 h-[132px] rounded-xl bg-gradient-to-br from-violet-600 via-purple-600 to-violet-800 p-4 flex flex-col justify-end relative overflow-hidden group cursor-pointer"
                                                     whileHover={{ scale: 1.02 }}
                                                     transition={{ duration: 0.2 }}
                                                 >
                                                     {/* Background icon */}
-                                                    <div className="absolute top-4 right-4 opacity-30 group-hover:opacity-50 transition-opacity">
-                                                        <svg className="w-16 h-16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <div className="absolute top-3 right-3 opacity-30 group-hover:opacity-50 transition-opacity">
+                                                        <svg className="w-12 h-12" viewBox="0 0 24 24" fill="currentColor">
                                                             <path d="M7 2v2h1v14a4 4 0 008 0V4h1V2H7zm4 14c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1zm2-4c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z" />
                                                         </svg>
                                                     </div>
                                                     <div>
-                                                        <h3 className="text-white font-semibold text-lg mb-1">Labs</h3>
-                                                        <p className="text-white/70 text-xs leading-relaxed">
-                                                            Experimental playground & fun micro-tools
+                                                        <h3 className="text-white font-semibold text-base mb-0.5">Labs</h3>
+                                                        <p className="text-white/70 text-[10px] leading-tight">
+                                                            Experimental playground & tools
                                                         </p>
                                                     </div>
                                                 </motion.div>
