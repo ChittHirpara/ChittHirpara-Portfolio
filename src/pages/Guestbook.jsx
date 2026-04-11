@@ -4,6 +4,7 @@ import Lenis from '@studio-freight/lenis'
 import Navbar from '../components/Navbar'
 import ClosingSection from '../components/ClosingSection'
 import { db } from '../lib/firebase'
+import SEO from '../components/SEO';
 import {
     collection,
     addDoc,
@@ -93,6 +94,7 @@ export default function Guestbook() {
 
     return (
         <div className="relative bg-black min-h-screen">
+            <SEO title="Guestbook" description="Explore the Guestbook page of Chitt Hirpara portfolio." />
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
             <Navbar />
 

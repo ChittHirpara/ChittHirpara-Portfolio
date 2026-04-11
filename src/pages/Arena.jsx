@@ -9,6 +9,7 @@ import Navbar from '../components/Navbar'
 import ClosingSection from '../components/ClosingSection'
 import ContactModal from '../components/ContactModal'
 import CombatRecordHUD, { AnimatedCounter } from '../components/CombatRecordHUD'
+import SEO from '../components/SEO';
 
 // ─── Hackathon Data ──────────────────────────────────────────────
 const offlineHackathons = [
@@ -232,6 +233,7 @@ export default function Arena() {
 
     return (
         <div className="relative bg-black min-h-screen">
+            <SEO title="Arena" description="Explore the Arena page of Chitt Hirpara portfolio." />
             {/* Noise */}
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
 

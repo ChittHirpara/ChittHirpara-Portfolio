@@ -11,6 +11,7 @@ import ProjectShowcase from '../components/ProjectShowcase'
 import GitHubActivitySection from '../components/GitHubActivitySection'
 import DecodingLogicSection from '../components/DecodingLogicSection'
 import ClosingSection from '../components/ClosingSection'
+import SEO from '../components/SEO';
 
 export default function Work() {
     const [mounted, setMounted] = useState(false)
@@ -43,6 +44,7 @@ export default function Work() {
 
     return (
         <div className="relative bg-black min-h-screen">
+            <SEO title="Work" description="Explore the Work page of Chitt Hirpara portfolio." />
             {/* Noise Texture Overlay */}
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
 

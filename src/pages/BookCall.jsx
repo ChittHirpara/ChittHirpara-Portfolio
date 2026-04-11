@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import Lenis from '@studio-freight/lenis'
 import Navbar from '../components/Navbar'
 import ClosingSection from '../components/ClosingSection'
+import SEO from '../components/SEO';
 
 export default function BookCall() {
     // Initialize Lenis smooth scrolling
@@ -32,6 +33,7 @@ export default function BookCall() {
 
     return (
         <div className="relative bg-black min-h-screen">
+            <SEO title="BookCall" description="Explore the BookCall page of Chitt Hirpara portfolio." />
             {/* Noise Texture Overlay */}
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
 

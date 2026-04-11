@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 import Navbar from '../components/Navbar'
+import SEO from '../components/SEO';
 
 
 const profile = {
@@ -35,6 +36,7 @@ export default function Resume() {
 
     return (
         <div className="relative bg-black min-h-screen">
+            <SEO title="Resume" description="Explore the Resume page of Chitt Hirpara portfolio." />
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
             <Navbar />
 

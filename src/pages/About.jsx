@@ -7,6 +7,7 @@ import ExperienceSection from '../components/ExperienceSection'
 import GitHubActivitySection from '../components/GitHubActivitySection'
 import DecodingLogicSection from '../components/DecodingLogicSection'
 import ClosingSection from '../components/ClosingSection'
+import SEO from '../components/SEO';
 
 export default function About() {
     // Initialize Lenis smooth scrolling
@@ -33,6 +34,7 @@ export default function About() {
 
     return (
         <div className="relative bg-black min-h-screen">
+            <SEO title="About" description="Explore the About page of Chitt Hirpara portfolio." />
             {/* Noise Texture Overlay */}
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
 

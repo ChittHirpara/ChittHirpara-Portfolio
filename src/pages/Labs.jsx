@@ -3,6 +3,7 @@ import Lenis from '@studio-freight/lenis'
 import Navbar from '../components/Navbar'
 import LabSection from '../components/LabSection'
 import ClosingSection from '../components/ClosingSection'
+import SEO from '../components/SEO';
 
 export default function Labs() {
     // Initialize Lenis smooth scrolling
@@ -30,6 +31,7 @@ export default function Labs() {
 
     return (
         <div className="relative bg-black min-h-screen">
+            <SEO title="Labs" description="Explore the Labs page of Chitt Hirpara portfolio." />
             {/* Noise Texture Overlay */}
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
 

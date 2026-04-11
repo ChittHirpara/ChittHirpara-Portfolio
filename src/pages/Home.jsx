@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 import Navbar from '../components/Navbar'
 import HeroSection from '../components/HeroSection'
 import HeroLayout from '../components/HeroLayout'
+import SEO from '../components/SEO';
 
 // Lazy — loaded only when needed (below fold)
 const ProjectShowcase = lazy(() => import('../components/ProjectShowcase'))
@@ -51,6 +52,7 @@ export default function Home() {
 
     return (
         <div className="relative bg-black">
+            <SEO title="Home" description="Explore the Home page of Chitt Hirpara portfolio." />
             {/* Noise Texture Overlay */}
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
 
