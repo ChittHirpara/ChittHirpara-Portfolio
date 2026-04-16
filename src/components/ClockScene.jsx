@@ -4,20 +4,16 @@ import { useRef, useEffect, useState } from 'react'
 import * as THREE from 'three'
 import ErrorBoundary from './ErrorBoundary'
 
+import { useFrame } from '@react-three/fiber'
+
 function Clock() {
     const hourHandRef = useRef()
     const minuteHandRef = useRef()
     const secondHandRef = useRef()
-    const [time, setTime] = useState(new Date())
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setTime(new Date())
-        }, 1000)
-        return () => clearInterval(interval)
-    }, [])
-
-    useEffect(() => {
+    useFrame(() => {
+        const time = new Date()
+        
         // Convert to IST (UTC+5:30)
         const istOffset = 5.5 * 60 * 60 * 1000
         const istTime = new Date(time.getTime() + istOffset)
@@ -41,7 +37,7 @@ function Clock() {
         if (secondHandRef.current) {
             secondHandRef.current.rotation.z = secondAngle
         }
-    }, [time])
+    })
 
     return (
         <group>

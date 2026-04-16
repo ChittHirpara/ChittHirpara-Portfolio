@@ -7,25 +7,7 @@ import SEO from '../components/SEO';
 
 export default function BookCall() {
     // Initialize Lenis smooth scrolling
-    useEffect(() => {
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smoothWheel: true,
-        })
-
-        let frameId
-        function raf(time) {
-            lenis.raf(time)
-            frameId = requestAnimationFrame(raf)
-        }
-        frameId = requestAnimationFrame(raf)
-
-        return () => {
-            cancelAnimationFrame(frameId)
-            lenis.destroy()
-        }
-    }, [])
+    
 
     const scrollToCalendar = () => {
         document.getElementById('calendar')?.scrollIntoView({ behavior: 'smooth' })

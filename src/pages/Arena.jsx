@@ -198,11 +198,11 @@ function OfflineCard({ hack, index }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.8, delay: index * 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="group"
+            className="group will-change-transform" // added will-change layer isolate
         >
-            <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-0 rounded-3xl overflow-hidden border border-white/[0.06] bg-[rgba(18,18,18,0.6)] backdrop-blur-xl hover:border-white/[0.12] transition-all duration-500`}>
+            <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-0 rounded-3xl overflow-hidden border border-white/[0.06] bg-[#0d0d0d] hover:border-white/[0.12] transition-all duration-500`}>
                 {/* Photo */}
-                <div className="relative w-full lg:w-[45%] h-[300px] lg:h-[420px] overflow-hidden bg-black/50">
+                <div className="relative w-full lg:w-[45%] h-[300px] lg:h-[420px] overflow-hidden bg-[#050505]">
                     <AnimatePresence mode="popLayout">
                         <motion.img
                             key={currentPhoto}
@@ -385,21 +385,7 @@ function OnlineCard({ hack, index }) {
 export default function Arena() {
     const [modalOpen, setModalOpen] = useState(false)
     
-    useEffect(() => {
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smoothWheel: true,
-            wheelMultiplier: 1,
-            touchMultiplier: 2,
-        })
-
-        lenis.on('scroll', ScrollTrigger.update)
-        gsap.ticker.add((time) => lenis.raf(time * 1000))
-        gsap.ticker.lagSmoothing(0)
-
-        return () => lenis.destroy()
-    }, [])
+    
 
     return (
         <div className="relative bg-black min-h-screen">

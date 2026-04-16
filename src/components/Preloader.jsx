@@ -278,7 +278,6 @@ export default function Preloader({ onComplete }) {
                 inset: 0,
                 background: 'rgba(255,255,255,0.55)',
                 width: `${writeProgress.toFixed(1)}%`,
-                transition: 'width 0.04s linear',
                 borderRadius: 1,
               }} />
             </div>
@@ -316,7 +315,6 @@ export default function Preloader({ onComplete }) {
                 position: 'absolute', inset: 0,
                 background: 'rgba(255,255,255,0.38)',
                 width: `${writeProgress.toFixed(1)}%`,
-                transition: 'width 0.05s linear',
               }} />
             </div>
           </motion.div>

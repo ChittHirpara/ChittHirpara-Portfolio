@@ -1,6 +1,9 @@
 import { lazy, Suspense, useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
+import Lenis from '@studio-freight/lenis'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import PageTransition from './components/PageTransition'
 import Preloader from './components/Preloader'
 import './index.css'
@@ -57,6 +60,40 @@ function App() {
       document.body.style.overflow = 'auto'
     }
   }, [loading])
+
+  // Global Smooth Scroll (Lenis) Context Setup
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+    
+    // Instantiate Singleton Lenis
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 2,
+    })
+
+    // Connect Lenis to GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update)
+
+    // Sync GSAP ticker with Lenis requestAnimationFrame
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000)
+    })
+
+    // Prevent GSAP's own lag smoothing from fighting Lenis
+    gsap.ticker.lagSmoothing(0)
+
+    // Ensure we scroll to top manually on load if needed
+    window.scrollTo(0, 0)
+
+    return () => {
+      // Complete cleanup so we don't leak timers
+      gsap.ticker.remove((time) => lenis.raf(time * 1000))
+      lenis.destroy()
+    }
+  }, [])
 
   return (
     <BrowserRouter>

@@ -26,29 +26,7 @@ const SectionFallback = () => <div className="min-h-[200px]" />
 
 export default function Home() {
     // Initialize Lenis smooth scrolling
-    useEffect(() => {
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            smoothWheel: true,
-            wheelMultiplier: 1,
-            touchMultiplier: 2,
-        })
-
-        // Sync Lenis with GSAP ScrollTrigger (no scrollerProxy — it breaks pin behavior)
-        lenis.on('scroll', ScrollTrigger.update)
-
-        gsap.ticker.add((time) => {
-            lenis.raf(time * 1000)
-        })
-
-        gsap.ticker.lagSmoothing(0)
-
-        return () => {
-            lenis.destroy()
-            ScrollTrigger.getAll().forEach(t => t.kill())
-        }
-    }, [])
+    
 
     return (
         <div className="relative bg-black">
