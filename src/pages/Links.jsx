@@ -6,11 +6,12 @@ import SEO from '../components/SEO';
 
 const socialLinks = [
     { number: '01', name: 'GITHUB', url: 'https://github.com/ChittHirpara' },
-    { number: '02', name: 'X', url: 'https://x.com/' },
-    { number: '03', name: 'LINKEDIN', url: 'https://linkedin.com/in/' },
-    { number: '04', name: 'LEETCODE', url: 'https://leetcode.com/' },
-    { number: '05', name: 'YOUTUBE', url: 'https://youtube.com/' },
-    { number: '06', name: 'EMAIL', url: 'mailto:hello@chitt.dev' },
+    { number: '02', name: 'X', url: 'https://x.com/ChittHirpara' },
+    { number: '03', name: 'LINKEDIN', url: 'https://www.linkedin.com/in/chitt-hirpara-930b80384/' },
+    { number: '04', name: 'LEETCODE', url: 'https://leetcode.com/u/ChittHirpara/' },
+    { number: '05', name: 'YOUTUBE', url: 'https://www.youtube.com/@ChittHirpara' },
+    { number: '06', name: 'SOLOLEARN', url: 'https://www.sololearn.com/en/profile/34707281' },
+    { number: '07', name: 'EMAIL', url: 'mailto:chitthirpara@gmail.com' },
 ]
 
 export default function Links() {

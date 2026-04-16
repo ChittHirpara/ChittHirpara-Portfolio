@@ -15,51 +15,156 @@ import SEO from '../components/SEO';
 const offlineHackathons = [
     {
         id: 1,
-        name: 'HackNUthon 5.0',
-        tagline: 'National Level Hackathon',
-        date: 'March 2025',
-        location: 'Nirma University, Ahmedabad',
-        project: 'RuneHub',
-        description: 'Built a full-stack learning platform with interactive coding challenges, real-time collaboration, and AI-powered code review in 36 hours.',
-        result: 'Top 10',
-        resultColor: 'text-yellow-400',
-        resultBg: 'bg-yellow-500/10 border-yellow-500/30',
+        name: "CRAFATHON '26",
+        tagline: 'Team Runtime Rebels',
+        date: 'Recent',
+        location: 'Offline',
+        project: 'Behavioural Continuous Authentication',
+        description: 'Built a secure banking system that silently monitors tap rhythm, swipe velocity & scroll patterns to flag imposters in real-time using a trust score (0-100).',
+        result: 'Participant',
+        resultColor: 'text-blue-400',
+        resultBg: 'bg-blue-500/10 border-blue-500/30',
         team: 4,
         duration: '36 hours',
-        tech: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'OpenAI'],
-        photo: '/images/chitt-1.jpg',
+        tech: ['React/Next', 'Python/Flask', 'scikit-learn', 'WebSockets', 'React Native'],
+        photos: [
+            '/images/crafathon.jpg',
+            '/images/crafathon_1.jpg',
+            '/images/crafathon_2.jpg',
+            '/images/crafathon_3.jpg',
+            '/images/crafathon_4.jpg',
+            '/images/crafathon_5.jpg'
+        ],
+        links: {
+            github: 'https://github.com/ChittHirpara/CRAFTATHON_GU',
+            live: 'https://craftathon-gu.vercel.app/'
+        }
     },
     {
         id: 2,
-        name: 'dotSlash 8.0',
-        tagline: 'SVNIT Flagship Hackathon',
-        date: 'February 2025',
-        location: 'SVNIT, Surat',
-        project: 'Rune AI',
-        description: 'Created an AI-powered writing assistant with grammar correction, tone adjustment, and content generation using custom fine-tuned models.',
-        result: 'Finalist',
+        name: 'HackCrux 2026',
+        tagline: 'GDG LNMIIT Jaipur',
+        date: 'Recent',
+        location: 'LNMIIT, Jaipur',
+        project: 'COS (Cognitive Operating System)',
+        description: 'Built a local AI voice pipeline and semantic memory system that tracks cognitive states to prevent context-switching delays. Fully simultaneous voice-overlay AI.',
+        result: 'Participant',
         resultColor: 'text-emerald-400',
         resultBg: 'bg-emerald-500/10 border-emerald-500/30',
-        team: 3,
-        duration: '24 hours',
-        tech: ['Next.js', 'Python', 'FastAPI', 'Whisper', 'TailwindCSS'],
-        photo: '/images/chitt-2.png',
+        team: 4,
+        duration: '30 hours',
+        tech: ['FastAPI', 'FAISS', 'Three.js', 'React', 'Whisper'],
+        photos: [
+            '/images/hackcrux_1.jpg',
+            '/images/hackcrux_2.jpg',
+            '/images/hackcrux_3.jpg',
+            '/images/hackcrux_4.jpg',
+            '/images/hackcrux_5.jpg',
+            '/images/hackcrux_6.jpg'
+        ],
+        links: {
+            github: 'https://github.com/ChittHirpara/HackCruz-COS'
+        }
     },
     {
         id: 3,
-        name: 'CodeStorm 3.0',
-        tagline: 'Inter-College Hackathon',
-        date: 'January 2025',
-        location: 'GEC Gandhinagar',
-        project: 'FleetFlow',
-        description: 'Developed a fleet management dashboard with real-time vehicle tracking, route optimization, and predictive maintenance alerts.',
+        name: 'Odoo Hackathon',
+        tagline: 'Engineering & System Design',
+        date: 'Recent',
+        location: 'Offline',
+        project: 'Odoo PLM System',
+        description: 'Designed a Product Lifecycle Management (PLM) system where engineering changes are proposed, reviewed, approved, and versioned instead of direct database edits.',
         result: 'Participant',
         resultColor: 'text-blue-400',
         resultBg: 'bg-blue-500/10 border-blue-500/30',
         team: 4,
         duration: '24 hours',
-        tech: ['React', 'Express', 'PostgreSQL', 'Mapbox', 'Chart.js'],
-        photo: '/images/chitt-4.jpg',
+        tech: ['Odoo', 'Python', 'System Design', 'PostgreSQL'],
+        photos: [
+            '/images/odoo_1.jpg',
+            '/images/odoo_2.jpg',
+            '/images/odoo_3.jpg',
+            '/images/odoo_4.jpg',
+            '/images/odoo_5.jpg',
+            '/images/odoo_6.jpg'
+        ],
+        links: {
+            github: 'https://github.com/ChittHirpara/Odoo_X_GV_PLM'
+        }
+    },
+    {
+        id: 4,
+        name: 'Hack the Tank 3.0',
+        tagline: 'National Level Hackathon',
+        date: 'Recent',
+        location: 'SVNIT, Surat',
+        project: 'ReturnIQ',
+        description: 'Built an AI-powered autonomous return inspection and hyperlocal drop-off system designed to transform e-commerce returns from a loss center into a revenue recovery engine.',
+        result: 'Top 4',
+        resultColor: 'text-yellow-400',
+        resultBg: 'bg-yellow-500/10 border-yellow-500/30',
+        team: 3,
+        duration: '30 hours',
+        tech: ['AI', 'System Design', 'Logistics', 'Ecommerce', 'Python'],
+        photos: [
+            '/images/hackthetank_1.jpg',
+            '/images/hackthetank_2.jpg',
+            '/images/hackthetank_3.jpg',
+            '/images/hackthetank_4.jpg',
+            '/images/hackthetank_5.jpg',
+            '/images/hackthetank_6.jpg'
+        ],
+        links: {}
+    },
+    {
+        id: 5,
+        name: 'ElectroSphere 2K26',
+        tagline: 'Team InnovateX',
+        date: 'Recent',
+        location: 'Offline',
+        project: 'ThreatLens',
+        description: 'Led the design of an ethical, static cybersecurity analysis and threat-modeling platform focused on explainability, defense, and responsible security education.',
+        result: '2nd Place',
+        resultColor: 'text-purple-400',
+        resultBg: 'bg-purple-500/10 border-purple-500/30',
+        team: 5,
+        duration: '24 hours',
+        tech: ['CyberSecurity', 'ThreatModeling', 'Static Analysis', 'React'],
+        photos: [
+            '/images/threatlens_1.jpg',
+            '/images/threatlens_2.jpg',
+            '/images/threatlens_3.jpg',
+            '/images/threatlens_4.jpg',
+            '/images/threatlens_5.jpg'
+        ],
+        links: {
+            github: 'https://github.com/ChittHirpara/ThreatLens',
+            live: 'https://threatlens-topaz.vercel.app/'
+        }
+    },
+    {
+        id: 6,
+        name: 'innoVAltion',
+        tagline: 'Intuitive.ai at DA-IICT',
+        date: 'Recent',
+        location: 'DA-IICT, Gandhinagar',
+        project: 'innoVAltion Challenge',
+        description: 'Led the team to the offline finals of an intense 48-hour hackathon out of 1180 competing teams. Built, debugged, and presented a complete solution while managing tight deadlines and rapid prototyping.',
+        result: 'Finalist',
+        resultColor: 'text-orange-400',
+        resultBg: 'bg-orange-500/10 border-orange-500/30',
+        team: 4,
+        duration: '48 hours',
+        tech: ['AI', 'Rapid Prototyping', 'System Design', 'Intuitive.ai'],
+        photos: [
+            '/images/daiict_1.jpg',
+            '/images/daiict_2.jpg',
+            '/images/daiict_3.jpg',
+            '/images/daiict_4.jpg'
+        ],
+        links: {
+            github: 'https://github.com/ChittHirpara/daiict'
+        }
     },
 ]
 
@@ -79,6 +184,19 @@ const onlineHackathons = [
 // ─── Offline Hackathon Card ──────────────────────────────────────
 function OfflineCard({ hack, index }) {
     const isEven = index % 2 === 0
+    
+    const photosList = hack.photos || (hack.photo ? [hack.photo] : [])
+    const [currentPhoto, setCurrentPhoto] = useState(0)
+
+    const nextPhoto = (e) => {
+        e.preventDefault();
+        setCurrentPhoto((prev) => (prev + 1) % photosList.length);
+    };
+
+    const prevPhoto = (e) => {
+        e.preventDefault();
+        setCurrentPhoto((prev) => (prev - 1 + photosList.length) % photosList.length);
+    };
 
     return (
         <motion.div
@@ -90,13 +208,50 @@ function OfflineCard({ hack, index }) {
         >
             <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-0 rounded-3xl overflow-hidden border border-white/[0.06] bg-[rgba(18,18,18,0.6)] backdrop-blur-xl hover:border-white/[0.12] transition-all duration-500`}>
                 {/* Photo */}
-                <div className="relative w-full lg:w-[45%] h-[300px] lg:h-[420px] overflow-hidden">
-                    <img
-                        src={hack.photo}
-                        alt={hack.name}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
+                <div className="relative w-full lg:w-[45%] h-[300px] lg:h-[420px] overflow-hidden bg-black/50">
+                    <AnimatePresence mode="popLayout">
+                        <motion.img
+                            key={currentPhoto}
+                            initial={{ opacity: 0, scale: 1.05 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.8 }}
+                            src={photosList[currentPhoto]}
+                            alt={`${hack.name} photo ${currentPhoto + 1}`}
+                            loading="lazy"
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-102"
+                        />
+                    </AnimatePresence>
+                    
+                    {/* Navigation Arrows */}
+                    {photosList.length > 1 && (
+                        <>
+                            <button 
+                                onClick={prevPhoto}
+                                className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white/70 hover:bg-black/80 hover:text-white backdrop-blur-md transition-all z-20 border border-white/5 hover:border-white/20"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                            </button>
+                            <button 
+                                onClick={nextPhoto}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white/70 hover:bg-black/80 hover:text-white backdrop-blur-md transition-all z-20 border border-white/5 hover:border-white/20"
+                            >
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                            </button>
+                        </>
+                    )}
+                    
+                    {/* Dots for slider indicator */}
+                    {photosList.length > 1 && (
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
+                            {photosList.map((_, i) => (
+                                <div 
+                                    key={i} 
+                                    className={`h-1.5 rounded-full transition-all duration-300 ${i === currentPhoto ? 'w-5 bg-orange-500' : 'w-1.5 bg-white/40'}`} 
+                                />
+                            ))}
+                        </div>
+                    )}
                     {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                     {/* Result badge */}
@@ -150,12 +305,33 @@ function OfflineCard({ hack, index }) {
                                 </span>
                             ))}
                         </div>
-                        {/* Team */}
-                        <div className="flex items-center gap-2 text-xs text-gray-500">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                            Team of {hack.team}
+                        {/* Team and Links */}
+                        <div className="flex flex-wrap items-center justify-between gap-4">
+                            <div className="flex items-center gap-2 text-xs text-gray-500 font-medium">
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                                Team of {hack.team}
+                            </div>
+                            
+                            {/* Actions / Links */}
+                            {hack.links && (
+                                <div className="flex items-center gap-2">
+                                    {hack.links.github && (
+                                        <a href={hack.links.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all border border-white/5 hover:border-white/20">
+                                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                            </svg>
+                                        </a>
+                                    )}
+                                    {hack.links.live && (
+                                        <a href={hack.links.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-orange-500/10 hover:bg-orange-500/20 text-orange-400 hover:text-orange-300 transition-all border border-orange-500/20 hover:border-orange-500/40 text-xs font-semibold tracking-wide uppercase">
+                                            <span>Live App</span>
+                                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                                        </a>
+                                    )}
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
