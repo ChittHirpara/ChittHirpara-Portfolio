@@ -169,16 +169,10 @@ const offlineHackathons = [
 ]
 
 const onlineHackathons = [
-    { id: 4, name: 'ETH India 2024', project: 'DeFi Dashboard', result: 'Submitted', tech: ['React', 'Solidity', 'Ethers.js'] },
-    { id: 5, name: 'MLH Global Hack', project: 'StudyBuddy AI', result: 'Top 20', tech: ['Next.js', 'OpenAI', 'Supabase'] },
-    { id: 6, name: 'HackThisFall 4.0', project: 'EcoTrack', result: 'Completed', tech: ['React', 'Firebase', 'Chart.js'] },
-    { id: 7, name: 'Devpost AI Challenge', project: 'VoiceNotes Pro', result: 'Submitted', tech: ['Python', 'Whisper', 'React'] },
-    { id: 8, name: 'Google Solution Challenge', project: 'MedConnect', result: 'Regional Finalist', tech: ['Flutter', 'Firebase', 'ML Kit'] },
-    { id: 9, name: 'BuildWithAI Hackathon', project: 'CodeReview Bot', result: 'Completed', tech: ['Node.js', 'GPT-4', 'GitHub API'] },
-    { id: 10, name: 'HackWithInfy 2024', project: 'SmartPark', result: 'Shortlisted', tech: ['React', 'IoT', 'MongoDB'] },
-    { id: 11, name: 'Hack4Bengal 3.0', project: 'AgriSense', result: 'Submitted', tech: ['React', 'Python', 'TensorFlow'] },
-    { id: 12, name: 'Junction Asia', project: 'TravelMate', result: 'Completed', tech: ['Next.js', 'Prisma', 'Stripe'] },
-    { id: 13, name: 'IIITD Hackathon', project: 'CampusConnect', result: 'Top 15', tech: ['React Native', 'Express', 'Socket.io'] },
+    { id: 7,  name: 'Meta PyTorch Hackathon', project: 'NetPulse SRE Benchmark', result: 'Submitted', tech: ['PyTorch', 'Groq', 'Node.js'] },
+    { id: 8,  name: 'Smart India Hackathon', project: 'AgriCert Platform', result: 'Participated', tech: ['React', 'Node.js', 'MongoDB'] },
+    { id: 9,  name: 'Postman API Hackathon', project: 'API Flow Monitor', result: 'Submitted', tech: ['Node.js', 'Postman', 'Express'] },
+    { id: 10, name: 'CodeChef Hackathon', project: 'Algo Animator', result: 'Submitted', tech: ['React', 'GSAP', 'Vercel'] },
 ]
 
 // ─── Offline Hackathon Card ──────────────────────────────────────
@@ -482,10 +476,10 @@ export default function Arena() {
             <section className="relative py-20 px-6 border-y border-white/[0.04]">
                 <div className="max-w-5xl mx-auto">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
-                        <AnimatedCounter target={13} label="Hackathons" />
-                        <AnimatedCounter target={3} label="Offline Events" />
-                        <AnimatedCounter target={10} label="Online Events" />
-                        <AnimatedCounter target={500} suffix="+" label="Hours Coded" />
+                        <AnimatedCounter target={10} label="Hackathons" />
+                        <AnimatedCounter target={6} label="Offline Events" />
+                        <AnimatedCounter target={4} label="Online Events" />
+                        <AnimatedCounter target={600} suffix="+" label="Hours Coded" />
                     </div>
                 </div>
             </section>

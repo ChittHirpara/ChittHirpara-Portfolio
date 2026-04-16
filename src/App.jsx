@@ -1,7 +1,8 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import PageTransition from './components/PageTransition'
+import Preloader from './components/Preloader'
 import './index.css'
 
 // ─── Lazy-loaded pages (code split per route) ──────────────────────
@@ -45,9 +46,34 @@ function AnimatedRoutes() {
 }
 
 function App() {
+  const [loading, setLoading] = useState(true)
+
+  // Quick fix: Set a CSS variable globally for the Lenis scroll if needed, 
+  // but mostly we want to ensure the scrollbar is hidden during load
+  useEffect(() => {
+    if (loading) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+  }, [loading])
+
   return (
     <BrowserRouter>
-      <AnimatedRoutes />
+      <AnimatePresence mode="wait">
+        {loading ? (
+          <Preloader key="preloader" onComplete={() => setLoading(false)} />
+        ) : (
+          <motion.div 
+            key="routes"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <AnimatedRoutes />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </BrowserRouter>
   )
 }
