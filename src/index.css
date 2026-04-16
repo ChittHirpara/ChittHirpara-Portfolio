@@ -264,4 +264,13 @@
   .notch-top-left {
     border-top-left-radius: 100px;
   }
+
+  /* Hide scrollbar for horizontal carousels but keep functionality */
+  .hide-scrollbars {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+  .hide-scrollbars::-webkit-scrollbar {
+    display: none;             /* Chrome, Safari and Opera */
+  }
 }
