@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import PageTransition from './components/PageTransition'
 import Preloader from './components/Preloader'
+import CustomCursor from './components/CustomCursor'
 import './index.css'
 
 // ─── Lazy-loaded pages (code split per route) ──────────────────────
@@ -97,6 +98,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <CustomCursor />
       <AnimatePresence mode="wait">
         {loading ? (
           <Preloader key="preloader" onComplete={() => setLoading(false)} />
