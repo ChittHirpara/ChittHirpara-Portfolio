@@ -47,10 +47,10 @@ function CurrentlyBuildingCard({ isInView, index }) {
 
                 {/* Project name */}
                 <h3 className="text-xl font-bold text-white mb-2">
-                    Rune AI
+                    Noerax
                 </h3>
                 <p className="text-gray-400 text-sm mb-6">
-                    Intelligent productivity assistant for modern developers
+                    Next-generation digital products & high-performance web engineering
                 </p>
 
                 {/* Progress bar */}

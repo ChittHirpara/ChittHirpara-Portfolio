@@ -3,7 +3,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import ContactModal from './ContactModal'
 
-// Route mapping for internal links
+// Route mapping for internal & external links
 const linkRoutes = {
     'Home': '/',
     'Labs': '/labs',
@@ -13,12 +13,14 @@ const linkRoutes = {
     'Projects': '/work',
     'Contact': '/book',
     'Resume': '/resume',
+    'Noerax': 'https://noerax.com',
+    'Revoot': 'https://app.revoot.in',
 }
 
 const navLinks = {
     General: ['Home', 'Labs', 'Guestbook', 'Uses'],
     About: ['About Me', 'Projects', 'Contact', 'Resume'],
-    Startup: ['Rune', 'RuneAI', 'RuneHub'],
+    Ventures: ['Noerax', 'Revoot'],
     Legal: ['Privacy Policy', 'Terms & Conditions'],
 }
 
@@ -45,6 +47,7 @@ export default function ClosingSection() {
     const sectionRef = useRef(null)
     const isInView = useInView(sectionRef, { once: false, amount: 0.2 })
     const [modalOpen, setModalOpen] = useState(false)
+    const [legalModal, setLegalModal] = useState(null)
 
     return (
         <section ref={sectionRef} className="relative pt-32 pb-12 px-6 sm:px-12 lg:px-20 bg-black overflow-hidden">
@@ -162,23 +165,54 @@ export default function ClosingSection() {
                                                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                                                 transition={{ duration: 0.4, delay: 0.5 + catIndex * 0.1 + linkIndex * 0.05 }}
                                             >
-                                                {linkRoutes[link] ? (
-                                                    <Link
-                                                        to={linkRoutes[link]}
-                                                        className="text-gray-500 text-sm hover:text-white transition-colors duration-300 relative group inline-block"
-                                                    >
-                                                        {link}
-                                                        <span className="absolute bottom-0 left-0 w-0 h-px bg-white/30 group-hover:w-full transition-all duration-300" />
-                                                    </Link>
-                                                ) : (
-                                                    <a
-                                                        href="#"
-                                                        className="text-gray-500 text-sm hover:text-white transition-colors duration-300 relative group inline-block"
-                                                    >
-                                                        {link}
-                                                        <span className="absolute bottom-0 left-0 w-0 h-px bg-white/30 group-hover:w-full transition-all duration-300" />
-                                                    </a>
-                                                )}
+                                                {(() => {
+                                                    const target = linkRoutes[link]
+                                                    const isExternal = target?.startsWith('http')
+                                                    const isLegal = link === 'Privacy Policy' || link === 'Terms & Conditions'
+
+                                                    if (isExternal) {
+                                                        return (
+                                                            <a
+                                                                href={target}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className="text-gray-500 text-sm hover:text-white transition-colors duration-300 relative group inline-flex items-center gap-1"
+                                                            >
+                                                                {link}
+                                                                <span className="text-[10px] opacity-60">↗</span>
+                                                                <span className="absolute bottom-0 left-0 w-0 h-px bg-white/30 group-hover:w-full transition-all duration-300" />
+                                                            </a>
+                                                        )
+                                                    }
+
+                                                    if (target) {
+                                                        return (
+                                                            <Link
+                                                                to={target}
+                                                                className="text-gray-500 text-sm hover:text-white transition-colors duration-300 relative group inline-block"
+                                                            >
+                                                                {link}
+                                                                <span className="absolute bottom-0 left-0 w-0 h-px bg-white/30 group-hover:w-full transition-all duration-300" />
+                                                            </Link>
+                                                        )
+                                                    }
+
+                                                    if (isLegal) {
+                                                        return (
+                                                            <button
+                                                                onClick={() => setLegalModal(link)}
+                                                                className="text-gray-500 text-sm hover:text-white transition-colors duration-300 relative group inline-block text-left"
+                                                            >
+                                                                {link}
+                                                                <span className="absolute bottom-0 left-0 w-0 h-px bg-white/30 group-hover:w-full transition-all duration-300" />
+                                                            </button>
+                                                        )
+                                                    }
+
+                                                    return (
+                                                        <span className="text-gray-500 text-sm">{link}</span>
+                                                    )
+                                                })()}
                                             </motion.li>
                                         ))}
                                     </ul>
@@ -232,6 +266,56 @@ export default function ClosingSection() {
             {/* Contact Modal */}
             <AnimatePresence>
                 {modalOpen && <ContactModal onClose={() => setModalOpen(false)} />}
+            </AnimatePresence>
+
+            {/* Legal Information Modal (Privacy Policy & Terms) */}
+            <AnimatePresence>
+                {legalModal && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setLegalModal(null)}
+                        className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.95, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.95, opacity: 0 }}
+                            onClick={(e) => e.stopPropagation()}
+                            className="bg-[#121216] border border-white/10 p-6 sm:p-8 rounded-3xl max-w-lg w-full relative shadow-2xl"
+                        >
+                            <button
+                                onClick={() => setLegalModal(null)}
+                                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+                            >
+                                ✕
+                            </button>
+                            <h3 className="text-xl font-bold text-white mb-3">{legalModal}</h3>
+                            <div className="text-gray-400 text-xs leading-relaxed space-y-3 max-h-[60vh] overflow-y-auto pr-2">
+                                {legalModal === 'Privacy Policy' ? (
+                                    <>
+                                        <p>Your privacy is important to us. It is Chitt Hirpara's policy to respect your privacy regarding any information we may collect across our website.</p>
+                                        <p>We only request personal information when we truly need it to provide a service to you (such as contact inquiries or guestbook messages). We collect it by fair and lawful means, with your knowledge and consent.</p>
+                                        <p>We don't share any personally identifying information publicly or with third parties, except when required to by law.</p>
+                                    </>
+                                ) : (
+                                    <>
+                                        <p>By accessing this portfolio website, you agree to be bound by these Terms and Conditions of Use and agree that you are responsible for compliance with any applicable local laws.</p>
+                                        <p>All materials contained in this portfolio (designs, codebase, projects) are protected by applicable copyright and trademark law unless stated otherwise.</p>
+                                        <p>Permission is granted to temporarily view the materials on Chitt Hirpara's website for personal, non-commercial transitory viewing only.</p>
+                                    </>
+                                )}
+                            </div>
+                            <button
+                                onClick={() => setLegalModal(null)}
+                                className="mt-6 w-full py-2.5 rounded-full bg-white text-black font-semibold text-xs hover:bg-gray-200 transition-colors"
+                            >
+                                Close
+                            </button>
+                        </motion.div>
+                    </motion.div>
+                )}
             </AnimatePresence>
         </section>
     )

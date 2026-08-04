@@ -271,7 +271,7 @@ export default function ProjectShowcase() {
 
 const ProjectPanel = memo(function ProjectPanel({ project, index: _index }) {
     return (
-        <div className="project-panel h-screen w-full flex items-center pl-24 lg:pl-32 pr-8 lg:pr-16">
+        <div className="project-panel min-h-screen py-12 lg:py-0 w-full flex items-center px-4 sm:px-8 lg:pl-32 lg:pr-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full max-w-7xl mx-auto">
                 {/* Left — Text */}
                 <div className="flex flex-col justify-center">

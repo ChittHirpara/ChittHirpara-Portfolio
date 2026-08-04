@@ -190,13 +190,13 @@ export default function SkillsetShowcase() {
                                     <directionalLight position={[5, 5, 5]} intensity={2} />
 
                                     {/* Rim lights for edge definition */}
-                                    <directionalLight position={[-5, 3, -5]} intensity={1} color="#4a90e2" />
-                                    <directionalLight position={[3, -3, -5]} intensity={0.8} color="#ff6b6b" />
-
-                                    {/* Top spotlight for bloom */}
+                                    <ambientLight intensity={0.4} />
+                                    <directionalLight position={[10, 10, 5]} intensity={1.2} />
+                                    <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#ec4899" />
                                     <spotLight
-                                        position={[0, 8, 0]}
+                                        position={[0, 15, 10]}
                                         intensity={2}
+                                        color="#f97316"
                                         angle={0.4}
                                         penumbra={1}
                                         castShadow
@@ -218,7 +218,7 @@ export default function SkillsetShowcase() {
 
                 {/* Typography Block */}
                 <motion.div
-                    className="text-center mb-16 -mt-32"
+                    className="text-center mb-12 sm:mb-16 -mt-12 sm:-mt-24"
                     style={{ y }}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
