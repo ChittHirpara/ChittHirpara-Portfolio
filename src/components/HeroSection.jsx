@@ -9,48 +9,52 @@ export default function HeroSection() {
             {/* Center Hero Content */}
             <div className="relative z-10 text-center max-w-7xl mx-auto">
                 {/* Main Headline */}
-                <h1 className="leading-[0.88] text-white mb-10 overflow-hidden flex flex-col items-center">
+                <h1 className="leading-[0.88] text-white mb-10 flex flex-col items-center select-none w-full max-w-full overflow-visible">
                     {/* CHITT */}
                     <div
-                        className="text-[15vw] sm:text-[12vw] lg:text-[10.5vw] flex overflow-hidden leading-none"
-                        style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, letterSpacing: '-0.04em' }}
+                        className="text-[13.5vw] sm:text-[11.5vw] lg:text-[9.8vw] flex justify-center items-center leading-none overflow-visible"
+                        style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, letterSpacing: '-0.03em' }}
                     >
                         {"CHITT".split("").map((char, index) => (
-                            <motion.span
-                                key={`chitt-${index}`}
-                                className="inline-block text-white"
-                                initial={{ y: "110%" }}
-                                animate={{ y: 0 }}
-                                transition={{
-                                    duration: 0.9,
-                                    ease: [0.22, 1, 0.36, 1],
-                                    delay: index * 0.06
-                                }}
-                            >
-                                {char}
-                            </motion.span>
+                            <span key={`chitt-wrap-${index}`} className="inline-block overflow-hidden py-1">
+                                <motion.span
+                                    key={`chitt-${index}`}
+                                    className="inline-block text-white"
+                                    initial={{ y: "110%" }}
+                                    animate={{ y: 0 }}
+                                    transition={{
+                                        duration: 0.9,
+                                        ease: [0.22, 1, 0.36, 1],
+                                        delay: index * 0.06
+                                    }}
+                                >
+                                    {char}
+                                </motion.span>
+                            </span>
                         ))}
                     </div>
 
                     {/* HIRPARA */}
                     <div
-                        className="text-[15vw] sm:text-[12vw] lg:text-[10.5vw] flex overflow-hidden leading-none"
-                        style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, letterSpacing: '-0.04em' }}
+                        className="text-[11.5vw] sm:text-[9.8vw] lg:text-[8.4vw] flex justify-center items-center leading-none overflow-visible mt-1 sm:mt-2"
+                        style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, letterSpacing: '-0.03em' }}
                     >
                         {"HIRPARA".split("").map((char, index) => (
-                            <motion.span
-                                key={`hirpara-${index}`}
-                                className="inline-block text-white"
-                                initial={{ y: "110%" }}
-                                animate={{ y: 0 }}
-                                transition={{
-                                    duration: 0.9,
-                                    ease: [0.22, 1, 0.36, 1],
-                                    delay: 0.12 + (index * 0.06)
-                                }}
-                            >
-                                {char}
-                            </motion.span>
+                            <span key={`hirpara-wrap-${index}`} className="inline-block overflow-hidden py-1">
+                                <motion.span
+                                    key={`hirpara-${index}`}
+                                    className="inline-block text-white"
+                                    initial={{ y: "110%" }}
+                                    animate={{ y: 0 }}
+                                    transition={{
+                                        duration: 0.9,
+                                        ease: [0.22, 1, 0.36, 1],
+                                        delay: 0.12 + (index * 0.06)
+                                    }}
+                                >
+                                    {char}
+                                </motion.span>
+                            </span>
                         ))}
                     </div>
                 </h1>
