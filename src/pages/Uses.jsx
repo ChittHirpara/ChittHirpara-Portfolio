@@ -108,7 +108,7 @@ export default function Uses() {
 
     return (
         <div className="relative bg-black min-h-screen">
-            <SEO title="Uses" description="Explore the Uses page of Chitt Hirpara portfolio." />
+            <SEO title="Uses" description="The tech stack, tools, software, and hardware Chitt Hirpara uses daily as a Full Stack Developer \u2014 from IDEs to keyboards, everything that powers the workflow." />
             {/* Noise Texture Overlay */}
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
 

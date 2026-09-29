@@ -1,26 +1,25 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import Lenis from '@studio-freight/lenis'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 import Navbar from '../components/Navbar'
 import WorkHero from '../components/WorkHero'
 import ProjectShowcase from '../components/ProjectShowcase'
 import GitHubActivitySection from '../components/GitHubActivitySection'
 import DecodingLogicSection from '../components/DecodingLogicSection'
 import ClosingSection from '../components/ClosingSection'
-import SEO from '../components/SEO';
+import SEO from '../components/SEO'
 
 export default function Work() {
     const [mounted, setMounted] = useState(false)
 
-    
+    useEffect(() => {
+        // Trigger section reveal animations after mount
+        const t = setTimeout(() => setMounted(true), 100)
+        return () => clearTimeout(t)
+    }, [])
 
     return (
         <div className="relative bg-black min-h-screen">
-            <SEO title="Work" description="Explore the Work page of Chitt Hirpara portfolio." />
+            <SEO title="Work" description="Browse Chitt Hirpara's project portfolio — ThreatLens, AgriCert, FleetFlow, and more full-stack, AI, and blockchain ventures built with React, Node.js, and modern web technologies." />
             {/* Noise Texture Overlay */}
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
 

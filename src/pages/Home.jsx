@@ -1,16 +1,11 @@
-import { useEffect, lazy, Suspense } from 'react'
+import { lazy, Suspense } from 'react'
 import { motion } from 'framer-motion'
-import Lenis from '@studio-freight/lenis'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 
 // Eager — visible immediately
 import Navbar from '../components/Navbar'
 import HeroSection from '../components/HeroSection'
 import HeroLayout from '../components/HeroLayout'
-import SEO from '../components/SEO';
+import SEO from '../components/SEO'
 
 // Lazy — loaded only when needed (below fold)
 const ProjectShowcase = lazy(() => import('../components/ProjectShowcase'))
@@ -30,7 +25,7 @@ export default function Home() {
 
     return (
         <div className="relative bg-black">
-            <SEO title="Home" description="Explore the Home page of Chitt Hirpara portfolio." />
+            <SEO title="Home" description="Chitt Hirpara — Full Stack Developer & AI Engineer based in Ahmedabad, India. Building premium digital experiences with React, Next.js, Node.js, and AI." />
             {/* Noise Texture Overlay */}
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
 

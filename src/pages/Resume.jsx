@@ -1,12 +1,6 @@
-import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Lenis from '@studio-freight/lenis'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 import Navbar from '../components/Navbar'
-import SEO from '../components/SEO';
+import SEO from '../components/SEO'
 
 
 const profile = {
@@ -22,7 +16,7 @@ export default function Resume() {
 
     return (
         <div className="relative bg-black min-h-screen">
-            <SEO title="Resume" description="Explore the Resume page of Chitt Hirpara portfolio." />
+            <SEO title="Resume" description="View and download Chitt Hirpara's resume \u2014 Full Stack Developer & AI Engineer with experience at Noerax and Revoot. React, Node.js, AI/ML, and cloud expertise." />
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
             <Navbar />
 

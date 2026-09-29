@@ -20,7 +20,7 @@ export default function Links() {
 
     return (
         <div className="relative bg-black min-h-screen">
-            <SEO title="Links" description="Explore the Links page of Chitt Hirpara portfolio." />
+            <SEO title="Links" description="All of Chitt Hirpara's important links \u2014 GitHub, LinkedIn, Twitter, Instagram, and featured projects in one place." />
             {/* Noise Texture Overlay */}
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
 

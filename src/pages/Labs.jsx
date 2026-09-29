@@ -11,7 +11,7 @@ export default function Labs() {
 
     return (
         <div className="relative bg-black min-h-screen">
-            <SEO title="Labs" description="Explore the Labs page of Chitt Hirpara portfolio." />
+            <SEO title="Labs" description="Chitt Hirpara's experimental playground \u2014 creative experiments, interactive demos, and proof-of-concept builds that push the limits of the web." />
             {/* Noise Texture Overlay */}
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
 

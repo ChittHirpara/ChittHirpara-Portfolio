@@ -84,7 +84,7 @@ export default function Guestbook() {
 
     return (
         <div className="relative bg-black min-h-screen">
-            <SEO title="Guestbook" description="Explore the Guestbook page of Chitt Hirpara portfolio." />
+            <SEO title="Guestbook" description="Sign Chitt Hirpara's guestbook \u2014 leave a note, a memory, or some feedback. A real-time community wall powered by Firebase." />
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
             <Navbar />
 

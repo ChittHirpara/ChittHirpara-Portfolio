@@ -1,15 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
-import Lenis from '@studio-freight/lenis'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-gsap.registerPlugin(ScrollTrigger)
 import Navbar from '../components/Navbar'
 import ClosingSection from '../components/ClosingSection'
 import ContactModal from '../components/ContactModal'
 import CombatRecordHUD, { AnimatedCounter } from '../components/CombatRecordHUD'
-import SEO from '../components/SEO';
+import SEO from '../components/SEO'
 
 // ─── Hackathon Data ──────────────────────────────────────────────
 const offlineHackathons = [
@@ -389,7 +384,7 @@ export default function Arena() {
 
     return (
         <div className="relative bg-black min-h-screen">
-            <SEO title="Arena" description="Explore the Arena page of Chitt Hirpara portfolio." />
+            <SEO title="Arena" description="Chitt Hirpara's hackathon battle record — CRAFATHON, HackCrux, Odoo Hackathon and more. 30+ hour coding sprints, real projects, and team victories." />
             {/* Noise */}
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
 

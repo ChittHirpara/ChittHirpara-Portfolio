@@ -15,7 +15,7 @@ export default function BookCall() {
 
     return (
         <div className="relative bg-black min-h-screen">
-            <SEO title="BookCall" description="Explore the BookCall page of Chitt Hirpara portfolio." />
+            <SEO title="Book a Call" description="Schedule a call with Chitt Hirpara \u2014 discuss a project, collaboration, or just have a conversation about tech, design, and building great products." />
             {/* Noise Texture Overlay */}
             <div className="fixed inset-0 noise-texture pointer-events-none z-0" />
 
