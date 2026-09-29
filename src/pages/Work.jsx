@@ -30,7 +30,7 @@ export default function Work() {
             <WorkHero />
 
             {/* VENTURE SHOWCASE Section Divider */}
-            <section className="relative py-32 px-6 sm:px-12">
+            <section className="relative py-16 sm:py-20 px-6 sm:px-12">
                 <div className="max-w-7xl mx-auto text-center">
                     {/* Use animate (not whileInView) so scroll-drift can't hide these */}
                     <motion.p

@@ -45,18 +45,18 @@ function SocialIcon({ children, href, delay }) {
 // ── Main Section ───────────────────────────────────────────────────
 export default function ClosingSection() {
     const sectionRef = useRef(null)
-    const isInView = useInView(sectionRef, { once: false, amount: 0.2 })
+    const isInView = useInView(sectionRef, { once: true, amount: 0.05 })
     const [modalOpen, setModalOpen] = useState(false)
     const [legalModal, setLegalModal] = useState(null)
 
     return (
-        <section ref={sectionRef} className="relative pt-32 pb-12 px-6 sm:px-12 lg:px-20 bg-black overflow-hidden">
+        <section ref={sectionRef} className="relative pt-16 pb-12 px-6 sm:px-12 lg:px-20 bg-black overflow-hidden">
             {/* Noise grain texture */}
             <div className="absolute inset-0 noise-texture opacity-5" />
 
             <div className="max-w-7xl mx-auto">
                 {/* Top CTA Area */}
-                <div className="relative mb-32">
+                <div className="relative mb-16">
                     <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12">
                         {/* Left - Avatar + Headline */}
                         <motion.div

@@ -3,6 +3,28 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 
 const certifications = [
     {
+        id: 15,
+        title: 'Open Source Contribution — Kepler',
+        issuer: '7Blocks (Kepler Space Traffic)',
+        year: '2026',
+        credentialId: '7B-5e7b1d9c-a482',
+        link: '#',
+        certificate: '/certificates/kepler_open_source.png',
+        accent: '#3b82f6',
+        tag: '🚀 Open Source',
+    },
+    {
+        id: 16,
+        title: 'BIOTHON 2026 — Bio-Hackathon',
+        issuer: 'Marwadi University, GSBTM, DST & IEEE',
+        year: '2026',
+        credentialId: 'BIOTHON-MU-2026',
+        link: '#',
+        certificate: '/certificates/biothon_2026.png',
+        accent: '#10b981',
+        tag: '🧬 Hackathon',
+    },
+    {
         id: 1,
         title: 'Software Engineering Job Simulation',
         issuer: 'Electronic Arts (Forage)',
@@ -155,17 +177,6 @@ const certifications = [
         certificate: '/certificates/cert_new_6.jpg',
         accent: '#ef4444',
         tag: 'Capstone',
-    },
-    {
-        id: 8,
-        title: 'InnovAltion — Shaping Future Innovators',
-        issuer: 'DA-IICT (Unstop Holiday Fest)',
-        year: '2025',
-        credentialId: 'DAIICT-INNOVALTION-2025',
-        link: '#',
-        certificate: '/certificates/Screenshot 2026-02-26 152657.png',
-        accent: '#f43f5e',
-        tag: 'Innovation',
     },
 ]
 

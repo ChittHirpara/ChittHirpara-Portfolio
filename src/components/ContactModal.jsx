@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { db } from '../lib/firebase'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 
 export default function ContactModal({ onClose }) {
     const [form, setForm] = useState({ name: '', email: '', subject: '', company: '', message: '' })
@@ -11,20 +13,42 @@ export default function ContactModal({ onClose }) {
         e.preventDefault()
         setStatus('sending')
         try {
-            const res = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-                body: JSON.stringify({
-                    access_key: 'YOUR_WEB3FORMS_KEY', // ← replace after setup
-                    subject: form.subject || `New message from ${form.name} — Portfolio`,
-                    from_name: form.name,
+            // Save directly to Firebase Firestore messages collection
+            let savedToFirestore = false
+            try {
+                await addDoc(collection(db, 'messages'), {
+                    name: form.name,
                     email: form.email,
-                    message: `Company: ${form.company || 'Not provided'}\n\n${form.message}`,
-                    redirect: false,
-                }),
-            })
-            const data = await res.json()
-            setStatus(data.success ? 'success' : 'error')
+                    subject: form.subject || 'Portfolio Inquiry',
+                    company: form.company || 'Not provided',
+                    message: form.message,
+                    createdAt: serverTimestamp(),
+                })
+                savedToFirestore = true
+            } catch (fsErr) {
+                console.warn('Firestore save warning:', fsErr)
+            }
+
+            // Web3Forms webhook (if configured)
+            const accessKey = 'YOUR_WEB3FORMS_KEY'
+            if (accessKey && accessKey !== 'YOUR_WEB3FORMS_KEY') {
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                    body: JSON.stringify({
+                        access_key: accessKey,
+                        subject: form.subject || `New message from ${form.name} — Portfolio`,
+                        from_name: form.name,
+                        email: form.email,
+                        message: `Company: ${form.company || 'Not provided'}\n\n${form.message}`,
+                        redirect: false,
+                    }),
+                })
+                const data = await res.json()
+                setStatus(data.success || savedToFirestore ? 'success' : 'error')
+            } else {
+                setStatus('success')
+            }
         } catch {
             setStatus('error')
         }

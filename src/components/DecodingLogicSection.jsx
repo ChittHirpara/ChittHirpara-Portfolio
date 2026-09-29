@@ -338,12 +338,12 @@ function SpotifyCard({ isInView, index }) {
 export default function DecodingLogicSection() {
     const sectionRef = useRef(null)
     // once: true — cards animate in once and stay visible, never re-hide on scroll
-    const isInView = useInView(sectionRef, { once: true, amount: 0.2 })
+    const isInView = useInView(sectionRef, { once: true, amount: 0.05 })
 
     return (
         <section
             ref={sectionRef}
-            className="relative py-32 px-6 sm:px-12 lg:px-20 bg-black overflow-hidden"
+            className="relative pt-12 pb-24 px-6 sm:px-12 lg:px-20 bg-black overflow-hidden"
         >
             {/* Noise grain texture */}
             <div className="absolute inset-0 noise-texture opacity-5" />
@@ -353,13 +353,13 @@ export default function DecodingLogicSection() {
 
             <div className="max-w-7xl mx-auto">
                 {/* Section header */}
-                <div className="text-center mb-20">
+                <div className="text-center mb-12">
                     {/* Top label */}
                     <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
                         transition={{ duration: 0.6 }}
-                        className="text-[11px] uppercase tracking-[0.3em] text-gray-500 font-medium mb-6"
+                        className="text-[11px] uppercase tracking-[0.3em] text-gray-500 font-medium mb-3"
                     >
                         Behind the Curtains
                     </motion.p>

@@ -1,13 +1,12 @@
-import { useEffect } from 'react'
-import { motion } from 'framer-motion'
-import Lenis from '@studio-freight/lenis'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from '../components/Navbar'
 import ClosingSection from '../components/ClosingSection'
-import SEO from '../components/SEO';
+import ContactModal from '../components/ContactModal'
+import SEO from '../components/SEO'
 
 export default function BookCall() {
-    // Initialize Lenis smooth scrolling
-    
+    const [modalOpen, setModalOpen] = useState(false)
 
     const scrollToCalendar = () => {
         document.getElementById('calendar')?.scrollIntoView({ behavior: 'smooth' })
@@ -90,9 +89,9 @@ export default function BookCall() {
                                     Book a Call
                                 </motion.button>
 
-                                <motion.a
-                                    href="mailto:chitthirpara@gmail.com"
-                                    className="px-8 py-4 rounded-full bg-transparent border border-white/20 text-white font-semibold flex items-center gap-3 hover:bg-white/5 transition-colors"
+                                <motion.button
+                                    onClick={() => setModalOpen(true)}
+                                    className="px-8 py-4 rounded-full bg-transparent border border-white/20 text-white font-semibold flex items-center gap-3 hover:bg-white/5 transition-colors cursor-pointer"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
@@ -100,7 +99,7 @@ export default function BookCall() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                                     </svg>
                                     Send a Message
-                                </motion.a>
+                                </motion.button>
                             </motion.div>
                         </div>
 
@@ -150,6 +149,11 @@ export default function BookCall() {
 
             {/* Footer */}
             <ClosingSection />
+
+            {/* Interactive Contact Message Modal */}
+            <AnimatePresence>
+                {modalOpen && <ContactModal onClose={() => setModalOpen(false)} />}
+            </AnimatePresence>
         </div>
     )
 }

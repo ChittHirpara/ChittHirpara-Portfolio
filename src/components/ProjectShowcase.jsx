@@ -93,24 +93,24 @@ const projects = [
     },
     {
         id: 5,
-        name: 'Algorithm Animator',
-        title: 'Algorithm Animator',
-        description: 'An interactive, visual learning tool that brings complex algorithms to life. Users can visualize sorting arrays, graph traversals, and dynamic programming in real-time, completely controlling playback speed and stepping through execution phases.',
+        name: 'NetPulse SRE',
+        title: 'NetPulse SRE Benchmark',
+        description: 'A production-grade SRE incident response simulation environment and benchmark built for autonomous AI agents in the Meta x PyTorch Hackathon. Models cascading microservice failures, SLA stability, and real-time NOC observability.',
         features: [
-            'Live colorful animations of intricate sorting and searching algorithms',
-            'Step-by-step playback controls (play/pause/speed adjustments)',
-            'Beautiful dark-themed UI built for educational clarity'
+            'Deterministic multi-service incident simulator with 3 challenge tiers',
+            'Multi-dimensional reward engine evaluating SLA stability & resource cost',
+            'Real-time NOC War Room observability dashboard for autonomous agent evaluation'
         ],
-        tech: ['React', 'Algorithms', 'Data Structures', 'Framer Motion', 'Tailwind CSS'],
-        links: { live: 'https://algorithm-animator.vercel.app/', code: 'https://github.com/ChittHirpara/algorithm-animator' },
-        gradient: 'from-purple-600 to-cyan-500',
-        gradientColor: 'rgba(147, 51, 234, 0.8)',
+        tech: ['PyTorch', 'Python', 'React', 'Meta AI', 'OpenEnv', 'Docker', 'FastAPI'],
+        links: { live: 'https://huggingface.co/spaces/chitt-hirpara/sql-repair-env', code: 'https://github.com/ChittHirpara/meta-pytorch-hackathon' },
+        gradient: 'from-indigo-600 via-purple-600 to-pink-500',
+        gradientColor: 'rgba(99, 102, 241, 0.8)',
         avatar: 'https://i.pravatar.cc/150?img=15',
         phones: [
-            '/projects/algorithm-animator.png',
-            '/projects/algorithm-animator.png'
+            '/projects/netpulse.png',
+            '/projects/netpulse.png'
         ],
-        desktop: '/projects/algorithm-animator.png',
+        desktop: '/projects/netpulse.png',
     }
 ]
 
@@ -249,21 +249,6 @@ export default function ProjectShowcase() {
                 {projects.map((project, index) => (
                     <ProjectPanel key={project.id} project={project} index={index} />
                 ))}
-
-                {/* See More Projects — at the bottom of last panel */}
-                <div className="h-20 flex items-center justify-center">
-                    <a
-                        href="https://github.com/ChittHirpara"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                    >
-                        <span className="text-sm tracking-wider">See more projects on GitHub</span>
-                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
-                </div>
             </div>
         </section>
     )

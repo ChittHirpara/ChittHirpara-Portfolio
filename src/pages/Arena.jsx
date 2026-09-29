@@ -5,11 +5,35 @@ import ClosingSection from '../components/ClosingSection'
 import ContactModal from '../components/ContactModal'
 import CombatRecordHUD, { AnimatedCounter } from '../components/CombatRecordHUD'
 import SEO from '../components/SEO'
-
 // ─── Hackathon Data ──────────────────────────────────────────────
 const offlineHackathons = [
     {
         id: 1,
+        name: 'Odoo Experience 2026',
+        tagline: 'Technology, Enterprise & Open Source Ecosystem',
+        date: 'Recent',
+        location: 'Mahatma Mandir, Gandhinagar',
+        project: 'Open Source ERP & Enterprise AI Systems',
+        description: 'Attended India\'s largest open-source tech & business conference with 45,000+ attendees, 180+ exhibitors, and 250+ talks. Explored developer customization workflows, enterprise ERP architecture, AI workflow automation, and open-source collaboration.',
+        result: 'Academic Visitor',
+        resultColor: 'text-purple-400',
+        resultBg: 'bg-purple-500/10 border-purple-500/30',
+        team: 'Solo Visitor',
+        duration: '3 Days',
+        tech: ['Odoo 18', 'Python', 'Open Source', 'ERP Architecture', 'Enterprise AI', 'System Design'],
+        photos: [
+            '/images/odoo_exp_1.jpg',
+            '/images/odoo_exp_2.jpg',
+            '/images/odoo_exp_3.jpg',
+            '/images/odoo_exp_4.jpg',
+            '/images/odoo_exp_5.jpg'
+        ],
+        links: {
+            linkedin: 'https://www.linkedin.com/feed/update/urn:li:activity:7505834576187928576/'
+        }
+    },
+    {
+        id: 2,
         name: "CRAFATHON '26",
         tagline: 'Team Runtime Rebels',
         date: 'Recent',
@@ -36,7 +60,7 @@ const offlineHackathons = [
         }
     },
     {
-        id: 2,
+        id: 3,
         name: 'HackCrux 2026',
         tagline: 'GDG LNMIIT Jaipur',
         date: 'Recent',
@@ -62,7 +86,7 @@ const offlineHackathons = [
         }
     },
     {
-        id: 3,
+        id: 4,
         name: 'Odoo Hackathon',
         tagline: 'Engineering & System Design',
         date: 'Recent',
@@ -88,7 +112,7 @@ const offlineHackathons = [
         }
     },
     {
-        id: 4,
+        id: 5,
         name: 'Hack the Tank 3.0',
         tagline: 'National Level Hackathon',
         date: 'Recent',
@@ -112,7 +136,7 @@ const offlineHackathons = [
         links: {}
     },
     {
-        id: 5,
+        id: 6,
         name: 'ElectroSphere 2K26',
         tagline: 'Team InnovateX',
         date: 'Recent',
@@ -138,7 +162,7 @@ const offlineHackathons = [
         }
     },
     {
-        id: 6,
+        id: 7,
         name: 'innoVAltion',
         tagline: 'Intuitive.ai at DA-IICT',
         date: 'Recent',
@@ -160,14 +184,14 @@ const offlineHackathons = [
         links: {
             github: 'https://github.com/ChittHirpara/daiict'
         }
-    },
+    }
 ]
 
 const onlineHackathons = [
-    { id: 7,  name: 'Meta PyTorch Hackathon', project: 'NetPulse SRE Benchmark', result: 'Submitted', tech: ['PyTorch', 'Groq', 'Node.js'] },
-    { id: 8,  name: 'Smart India Hackathon', project: 'AgriCert Platform', result: 'Participated', tech: ['React', 'Node.js', 'MongoDB'] },
-    { id: 9,  name: 'Postman API Hackathon', project: 'API Flow Monitor', result: 'Submitted', tech: ['Node.js', 'Postman', 'Express'] },
-    { id: 10, name: 'CodeChef Hackathon', project: 'Algo Animator', result: 'Submitted', tech: ['React', 'GSAP', 'Vercel'] },
+    { id: 8,  name: 'Meta PyTorch Hackathon', project: 'NetPulse SRE Benchmark', result: 'Submitted', tech: ['PyTorch', 'Groq', 'Node.js'] },
+    { id: 9,  name: 'Smart India Hackathon', project: 'AgriCert Platform', result: 'Participated', tech: ['React', 'Node.js', 'MongoDB'] },
+    { id: 10, name: 'Postman API Hackathon', project: 'API Flow Monitor', result: 'Submitted', tech: ['Node.js', 'Postman', 'Express'] },
+    { id: 11, name: 'CodeChef Hackathon', project: 'Algo Animator', result: 'Submitted', tech: ['React', 'GSAP', 'Vercel'] },
 ]
 
 // ─── Offline Hackathon Card ──────────────────────────────────────
@@ -300,17 +324,25 @@ function OfflineCard({ hack, index }) {
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
-                                Team of {hack.team}
+                                {typeof hack.team === 'number' ? `Team of ${hack.team}` : hack.team}
                             </div>
                             
                             {/* Actions / Links */}
                             {hack.links && (
                                 <div className="flex items-center gap-2">
                                     {hack.links.github && (
-                                        <a href={hack.links.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all border border-white/5 hover:border-white/20">
+                                        <a href={hack.links.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all border border-white/5 hover:border-white/20" title="GitHub Repository">
                                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                             </svg>
+                                        </a>
+                                    )}
+                                    {hack.links.linkedin && (
+                                        <a href={hack.links.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 text-[#70b5f9] hover:text-white transition-all border border-[#0A66C2]/25 hover:border-[#0A66C2]/50 text-xs font-semibold tracking-wide">
+                                            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                            </svg>
+                                            <span>LinkedIn Post</span>
                                         </a>
                                     )}
                                     {hack.links.live && (
@@ -457,10 +489,10 @@ export default function Arena() {
             <section className="relative py-20 px-6 border-y border-white/[0.04]">
                 <div className="max-w-5xl mx-auto">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
-                        <AnimatedCounter target={10} label="Hackathons" />
-                        <AnimatedCounter target={6} label="Offline Events" />
+                        <AnimatedCounter target={11} label="Events & Arenas" />
+                        <AnimatedCounter target={7} label="Offline Events" />
                         <AnimatedCounter target={4} label="Online Events" />
-                        <AnimatedCounter target={600} suffix="+" label="Hours Coded" />
+                        <AnimatedCounter target={650} suffix="+" label="Hours Coded" />
                     </div>
                 </div>
             </section>
