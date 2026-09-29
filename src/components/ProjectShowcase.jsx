@@ -72,24 +72,24 @@ const projects = [
     },
     {
         id: 4,
-        name: 'Elite Auction Hub',
-        title: 'CodingGita Auction',
-        description: 'A live, competitive event auction platform designed with a premium black-and-gold styling. Engineered for rock-solid live performance with cross-tab synchronization and strict deterministic bidding queues for high-stakes events.',
+        name: 'Zelnex',
+        title: 'Zelnex Pharmaceuticals',
+        description: 'A sleek, modern pharmaceutical company website built with a premium design. Showcases Zelnex\'s product line, research capabilities, and corporate identity through a high-performance, responsive Next.js web experience.',
         features: [
-            'Real-time bidding with deterministic seeding and queue accuracy',
-            'Live budget tracking and ceremonial audio event cues',
-            'Crash-proof state recovery via LocalStorage and BroadcastChannel'
+            'Premium pharmaceutical brand identity with modern UI/UX',
+            'Fully responsive layout optimised for all device sizes',
+            'High-performance Next.js architecture with fast page loads'
         ],
-        tech: ['React', 'WebSockets', 'Tailwind CSS', 'Framer Motion', 'LocalStorage'],
-        links: { live: 'https://codinggita-auction-arena.vercel.app/', code: 'https://github.com/ChittHirpara/elite-auction-hub' },
-        gradient: 'from-yellow-500 to-amber-700',
-        gradientColor: 'rgba(234, 179, 8, 0.8)',
+        tech: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion', 'TypeScript'],
+        links: { live: 'https://zelnex.vercel.app/', code: 'https://github.com/ChittHirpara/zelnex' },
+        gradient: 'from-teal-500 to-cyan-400',
+        gradientColor: 'rgba(20, 184, 166, 0.8)',
         avatar: 'https://i.pravatar.cc/150?img=14',
         phones: [
-            '/projects/auction-hub.png',
-            '/projects/auction-hub.png'
+            '/projects/zelnex.png',
+            '/projects/zelnex.png'
         ],
-        desktop: '/projects/auction-hub.png',
+        desktop: '/projects/zelnex.png',
     },
     {
         id: 5,
