@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect, Suspense } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
+import { Environment } from '@react-three/drei'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import * as THREE from 'three'
 import ErrorBoundary from './ErrorBoundary'
@@ -55,48 +56,60 @@ function GlossySculpture({ scrollProgress }) {
 
         // Scroll-driven rotation - more responsive
         const scrollValue = scrollProgress ? scrollProgress.get() : 0
-        const targetRotationY = scrollValue * Math.PI * 2.5
-        const targetRotationX = Math.sin(scrollValue * Math.PI) * 0.35
+        const targetRotationY = scrollValue * Math.PI * 3
+        const targetRotationX = Math.sin(scrollValue * Math.PI) * 0.4
 
         // Smooth lerp
-        groupRef.current.rotation.y += (targetRotationY - groupRef.current.rotation.y) * 0.06
-        groupRef.current.rotation.x += (targetRotationX - groupRef.current.rotation.x) * 0.06
+        groupRef.current.rotation.y += (targetRotationY - groupRef.current.rotation.y) * 0.05
+        groupRef.current.rotation.x += (targetRotationX - groupRef.current.rotation.x) * 0.05
 
-        // Gentle breathing animation
-        breathingRef.current += delta * 0.15
-        const breathScale = 1 + Math.sin(breathingRef.current) * 0.02
-        groupRef.current.scale.setScalar(breathScale * 0.58)
+        // Ultra-slow breathing
+        breathingRef.current += delta * 0.12
+        const breathScale = 1 + Math.sin(breathingRef.current) * 0.012
+        groupRef.current.scale.setScalar(breathScale * 0.5)
     })
 
     return (
-        <group ref={groupRef} scale={0.58}>
-            {/* Primary Torus Knot - Large outer with dark chrome & iridescent sheen */}
+        <group ref={groupRef} scale={0.5}>
+            {/* Primary Torus Knot - Large outer */}
             <mesh>
-                <torusKnotGeometry args={[1.2, 0.35, 96, 32, 2, 3]} />
-                <meshStandardMaterial
-                    color="#201a35"
-                    metalness={0.92}
-                    roughness={0.12}
+                <torusKnotGeometry args={[1.2, 0.35, 64, 24, 2, 3]} />
+                <meshPhysicalMaterial
+                    color="#080810"
+                    metalness={0.98}
+                    roughness={0.02}
+                    clearcoat={1}
+                    clearcoatRoughness={0.03}
+                    reflectivity={1}
+                    envMapIntensity={3.5}
                 />
             </mesh>
 
-            {/* Secondary Knot - Medium, rotated with deep violet slate */}
+            {/* Secondary Knot - Medium, rotated */}
             <mesh rotation={[Math.PI / 3, Math.PI / 5, Math.PI / 6]} scale={0.75}>
-                <torusKnotGeometry args={[1.1, 0.28, 64, 24, 3, 5]} />
-                <meshStandardMaterial
-                    color="#141829"
-                    metalness={0.88}
-                    roughness={0.16}
+                <torusKnotGeometry args={[1.1, 0.28, 48, 20, 3, 5]} />
+                <meshPhysicalMaterial
+                    color="#0a0a18"
+                    metalness={0.96}
+                    roughness={0.04}
+                    clearcoat={1}
+                    clearcoatRoughness={0.05}
+                    reflectivity={1}
+                    envMapIntensity={3}
                 />
             </mesh>
 
             {/* Inner Knot - Smaller, different weave */}
             <mesh rotation={[Math.PI / 6, Math.PI / 4, 0]} scale={0.55}>
-                <torusKnotGeometry args={[1.0, 0.22, 48, 20, 5, 7]} />
-                <meshStandardMaterial
-                    color="#25122e"
-                    metalness={0.85}
-                    roughness={0.18}
+                <torusKnotGeometry args={[1.0, 0.22, 32, 16, 5, 7]} />
+                <meshPhysicalMaterial
+                    color="#0c0c1a"
+                    metalness={0.94}
+                    roughness={0.06}
+                    clearcoat={1}
+                    clearcoatRoughness={0.08}
+                    reflectivity={1}
+                    envMapIntensity={2.5}
                 />
             </mesh>
         </group>
@@ -114,7 +127,6 @@ export default function SkillsetShowcase() {
     const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.3, 1, 1, 0.3])
     const y = useTransform(scrollYProgress, [0, 0.3], [30, 0])
 
-    // Mount canvas immediately and observe
     useEffect(() => {
         const el = sectionRef.current
         if (!el) return
@@ -133,7 +145,7 @@ export default function SkillsetShowcase() {
     return (
         <motion.section
             ref={sectionRef}
-            className="relative bg-black pt-12 pb-16 overflow-hidden z-10"
+            className="relative bg-black pt-8 pb-16 overflow-hidden z-10"
             style={{ opacity }}
         >
             {/* Noise & Vignette */}
@@ -141,8 +153,8 @@ export default function SkillsetShowcase() {
             <div className="absolute inset-0 opacity-60" style={{ background: 'radial-gradient(circle, transparent 0%, transparent 50%, black 100%)' }} />
 
             <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
-                {/* 3D Sculpture — Procedural multi-point studio lighting */}
-                <div className="h-[340px] sm:h-[400px] lg:h-[440px] mb-2">
+                {/* 3D Sculpture */}
+                <div className="h-[380px] sm:h-[420px] lg:h-[460px] mb-0">
                     {isVisible ? (
                         <ErrorBoundary>
                             <Suspense fallback={
@@ -151,10 +163,10 @@ export default function SkillsetShowcase() {
                                 </div>
                             }>
                                 <Canvas
-                                    camera={{ position: [0, 0, 4.6], fov: 45 }}
-                                    dpr={[1, 1.5]}
+                                    camera={{ position: [0, 0, 5], fov: 50 }}
+                                    dpr={[1, 1]}
                                     gl={{
-                                        antialias: true,
+                                        antialias: false,
                                         alpha: true,
                                         powerPreference: 'high-performance',
                                         preserveDrawingBuffer: false,
@@ -171,31 +183,29 @@ export default function SkillsetShowcase() {
                                         }, false)
                                     }}
                                 >
-                                    {/* Base ambient lighting */}
-                                    <ambientLight intensity={0.7} />
+                                    {/* Ambient base light */}
+                                    <ambientLight intensity={0.2} />
 
-                                    {/* Key light for crisp reflections */}
-                                    <directionalLight position={[5, 6, 5]} intensity={2.8} color="#ffffff" />
+                                    {/* Key light (strong specular) */}
+                                    <directionalLight position={[5, 5, 5]} intensity={2} />
 
-                                    {/* Vivid Purple/Pink rim light */}
-                                    <directionalLight position={[-8, -4, -3]} intensity={4.2} color="#c084fc" />
+                                    {/* Rim lights for edge definition */}
+                                    <directionalLight position={[-5, 3, -5]} intensity={1} color="#4a90e2" />
+                                    <directionalLight position={[3, -3, -5]} intensity={0.8} color="#ff6b6b" />
 
-                                    {/* Vivid Cyan/Teal specular fill */}
-                                    <directionalLight position={[8, -3, 3]} intensity={3.8} color="#38bdf8" />
-
-                                    {/* Warm top spotlight */}
+                                    {/* Top spotlight for bloom */}
                                     <spotLight
-                                        position={[0, 8, 6]}
-                                        intensity={3.5}
-                                        color="#fb923c"
-                                        angle={0.6}
-                                        penumbra={0.8}
+                                        position={[0, 8, 0]}
+                                        intensity={2}
+                                        angle={0.4}
+                                        penumbra={1}
+                                        castShadow
                                     />
 
-                                    {/* Electric blue bottom fill */}
-                                    <pointLight position={[0, -5, 2]} intensity={2.5} color="#818cf8" />
-
                                     <GlossySculpture scrollProgress={scrollYProgress} />
+
+                                    {/* Exact preview HDR environment - served locally with zero network failure */}
+                                    <Environment files="/potsdamer_platz_1k.hdr" background={false} />
                                 </Canvas>
                             </Suspense>
                         </ErrorBoundary>
