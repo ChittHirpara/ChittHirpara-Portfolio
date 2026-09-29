@@ -256,35 +256,35 @@ export default function ProjectShowcase() {
 
 const ProjectPanel = memo(function ProjectPanel({ project, index: _index }) {
     return (
-        <div className="project-panel min-h-screen py-12 lg:py-0 w-full flex items-center px-4 sm:px-8 lg:pl-32 lg:pr-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 w-full max-w-7xl mx-auto">
+        <div className="project-panel h-screen w-full flex items-center px-4 sm:px-8 lg:pl-32 lg:pr-16 py-4 lg:py-0">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 w-full max-w-7xl mx-auto items-center">
                 {/* Left — Text */}
                 <div className="flex flex-col justify-center">
                     {/* Colored Dash + Title */}
-                    <div className="flex items-center gap-4 mb-6">
-                        <div className={`w-10 h-1 rounded-full bg-gradient-to-r ${project.gradient}`} />
-                        <h2 className="text-4xl lg:text-5xl font-bold tracking-tight">{project.title}</h2>
+                    <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                        <div className={`w-8 sm:w-10 h-1 rounded-full bg-gradient-to-r ${project.gradient}`} />
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">{project.title}</h2>
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-md">
+                    <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 max-w-md">
                         🚀 {project.description}
                     </p>
 
                     {/* Features */}
-                    <div className="space-y-3 mb-6">
+                    <div className="space-y-2 mb-3 sm:mb-4">
                         {project.features.map((feat, i) => (
                             <div key={i} className="flex items-start gap-2.5">
-                                <span className="text-yellow-400 text-sm mt-0.5">✦</span>
+                                <span className="text-yellow-400 text-xs sm:text-sm mt-0.5">✦</span>
                                 <span className="text-xs text-gray-300 leading-relaxed">{feat}</span>
                             </div>
                         ))}
                     </div>
 
                     {/* Tech Pills */}
-                    <div className="flex flex-wrap gap-1.5 mb-8">
+                    <div className="flex flex-wrap gap-1.5 mb-4 sm:mb-6">
                         {project.tech.map((t, i) => (
-                            <span key={i} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-medium text-gray-300">
+                            <span key={i} className="px-2.5 sm:px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] sm:text-[11px] font-medium text-gray-300">
                                 {t}
                             </span>
                         ))}
@@ -296,7 +296,7 @@ const ProjectPanel = memo(function ProjectPanel({ project, index: _index }) {
                             href={project.links?.live || '#'}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`px-6 py-2.5 rounded-full bg-gradient-to-r ${project.gradient} text-white text-sm font-medium hover:scale-105 transition-transform duration-300`}
+                            className={`px-5 sm:px-6 py-2 sm:py-2.5 rounded-full bg-gradient-to-r ${project.gradient} text-white text-xs sm:text-sm font-medium hover:scale-105 transition-transform duration-300`}
                         >
                             View Project
                         </a>
@@ -304,7 +304,7 @@ const ProjectPanel = memo(function ProjectPanel({ project, index: _index }) {
                             href={project.links?.code || '#'}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-6 py-2.5 rounded-full border border-white/20 text-white text-sm font-medium hover:bg-white/10 transition-all duration-300 flex items-center gap-2"
+                            className="px-5 sm:px-6 py-2 sm:py-2.5 rounded-full border border-white/20 text-white text-xs sm:text-sm font-medium hover:bg-white/10 transition-all duration-300 flex items-center gap-2"
                         >
                             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                 <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z" />
@@ -318,7 +318,7 @@ const ProjectPanel = memo(function ProjectPanel({ project, index: _index }) {
                 <div className="relative flex items-center justify-center">
                     {/* Solid gradient background panel */}
                     <div
-                        className={`relative w-full h-[480px] lg:h-[560px] rounded-[32px] p-5 lg:p-6 bg-gradient-to-br ${project.gradient}`}
+                        className={`relative w-full h-[380px] sm:h-[430px] lg:h-[480px] xl:h-[520px] rounded-[28px] lg:rounded-[32px] p-4 sm:p-5 lg:p-6 bg-gradient-to-br ${project.gradient}`}
                         style={{ opacity: 0.85 }}
                     >
                         <div className="relative w-full h-full flex gap-4 lg:gap-5">
